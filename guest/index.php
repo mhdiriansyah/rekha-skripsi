@@ -89,7 +89,6 @@
   <script src="../assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
   <script src="../assets/js/demo/datatables-demo.js"></script>
   <script src="../assets/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-  <script src="../node_modules/select2/dist/js/select2.full.min.js"></script>
   <script src="../style/assets/js/scripts.js"></script>
   <script src="../style/assets/js/custom.js"></script>
   <script>
