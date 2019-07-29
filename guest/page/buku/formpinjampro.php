@@ -18,19 +18,29 @@
                     $tgl2       = date('Y-m-d', strtotime($_POST['tgl_selesai']));
                     $ket        = addslashes($_POST['keterangan']);
 
+                    $date1      = new DateTime($tgl1);
+                    $date2      = new DateTime($tgl2);
+                    $diff       = $date1->diff($date2);
+                    
                     if ($role == 1){
-                        $input = mysqli_query($conn,"INSERT INTO tbl_peminjaman SET
-                                id_buku         = '$idbuku',
-                                nim             = '$id',
-                                tgl_pinjam      = '$tgl1',
-                                tgl_selesai     = '$tgl2',
-                                status_pinjaman = 0,
-                                keterangan      = '$ket'
-                                ") or die (mysqli_error($conn));
-                        if ($input){
-                            echo '<a href="#" class="btn btn-success btn-block">Pinjaman Buku Berhasil Diproses</a>';
-                            echo "<meta http-equiv='refresh' content='1;
-                            url=?page=peminjaman'>";
+                        if ($diff->d <= 14) {
+                            $input = mysqli_query($conn,"INSERT INTO tbl_peminjaman SET
+                                    id_buku         = '$idbuku',
+                                    nim             = '$id',
+                                    tgl_pinjam      = '$tgl1',
+                                    tgl_selesai     = '$tgl2',
+                                    status_pinjaman = 0,
+                                    keterangan      = '$ket'
+                                    ") or die (mysqli_error($conn));
+                            if ($input){
+                                echo '<a href="#" class="btn btn-success btn-block">Pinjaman Buku Berhasil Diproses</a>';
+                                echo "<meta http-equiv='refresh' content='1;
+                                url=?page=peminjaman'>";
+                            }
+                        } else {
+                            echo '<div class="row">';
+                            echo '<div class="card border-left-danger shadow">';
+                            echo '<div class="card-body"> Waktu peminjaman anda melebihi 2 Minggu, <a href="?page=formpinjam&id='.$idbuku.'" class="btn btn-warning">input data ulang</a> </div></div></div>';
                         }
                     } else {
                         $input = mysqli_query($conn,"INSERT INTO tbl_peminjaman SET

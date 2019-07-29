@@ -21,6 +21,7 @@
                                 <th>Tanggal Pinjam</th>
                                 <th>Tanggal Selesai</th>
                                 <th>Tanggal Kembalikan</th>
+                                <th>Acc</th>
                                 <th>Status</th>
                                 <th>Notifikasi Email</th>
                                 <th>Denda</th>
@@ -44,12 +45,16 @@
                                 <td><?= tanggal($data['tgl_pinjam']) ?></td>
                                 <td><?= tanggal($data['tgl_selesai']) ?></td>
                                 <td><?= tanggal($data['tgl_kembali']) ?></td>
+                                <td><?= statusAcc($data['acc']) ?></td>
                                 <td><?= statusPeminjaman($data['status_pinjaman'],$data['tgl_selesai']) ?></td>
                                 <td><?= statusNotifEmail($data['notif_email']) ?></td>
                                 <?= emailReminder($data['id_pinjaman'],$data['email'],$data['nama_lengkap'],$data['tgl_selesai'],$data['id_buku'],$data['judul']) ?>
                                 <td><?= dendaJumlah($data['id_pinjaman'],$data['tgl_kembali'],$data['tgl_selesai']) ?></td>
                                 <td><?= statusKeterangan($data['keterangan']) ?></td>
                                 <td>
+                                    <?php if ($data['acc'] == 0){ ?>
+                                    <a href="?page=updateacc&id=<?= $data['id_pinjaman'] ?>" class="btn btn-warning">acc peminjaman</a>
+                                    <?php } ?>
                                     <a href="?page=peminjamanlihat&id=<?= $data['id_pinjaman'] ?>" class="btn btn-primary">lihat detail</a>
                                 </td>
                             </tr>

@@ -34,6 +34,14 @@ class ComposerStaticInit914d4895903ad95cad53bfb276b5fa45
         array (
             'Interop\\Container\\' => 18,
         ),
+        'F' => 
+        array (
+            'FontLib\\' => 8,
+        ),
+        'D' => 
+        array (
+            'Dompdf\\' => 7,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -81,11 +89,23 @@ class ComposerStaticInit914d4895903ad95cad53bfb276b5fa45
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
         ),
+        'FontLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
+        ),
+        'Dompdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
         'S' => 
         array (
+            'Svg\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src',
+            ),
             'Sastrawi\\Trka' => 
             array (
                 0 => __DIR__ . '/..' . '/sastrawi/trka/src',
@@ -102,7 +122,20 @@ class ComposerStaticInit914d4895903ad95cad53bfb276b5fa45
             array (
                 0 => __DIR__ . '/..' . '/sastrawi/sastrawi/src',
             ),
+            'Sabberworm\\CSS' => 
+            array (
+                0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib',
+            ),
         ),
+    );
+
+    public static $classMap = array (
+        'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
+        'HTML5_Data' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Data.php',
+        'HTML5_InputStream' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/InputStream.php',
+        'HTML5_Parser' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Parser.php',
+        'HTML5_Tokenizer' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
+        'HTML5_TreeBuilder' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -111,6 +144,7 @@ class ComposerStaticInit914d4895903ad95cad53bfb276b5fa45
             $loader->prefixLengthsPsr4 = ComposerStaticInit914d4895903ad95cad53bfb276b5fa45::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit914d4895903ad95cad53bfb276b5fa45::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit914d4895903ad95cad53bfb276b5fa45::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit914d4895903ad95cad53bfb276b5fa45::$classMap;
 
         }, null, ClassLoader::class);
     }

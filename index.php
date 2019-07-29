@@ -1,3 +1,9 @@
+<?php 
+
+include "assets/lib/koneksi.php";
+include "service.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +22,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template -->
-  <link href="css/landing-page.min.css" rel="stylesheet">
+  <link href="css/landing-page.css" rel="stylesheet">
 
 </head>
 
@@ -25,8 +31,8 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Home</a>
-      <a class="btn btn-primary" href="login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
+      <a class="navbar-brand" href="index.php"><i class="fa fa-home"></i> Home</a>
+      <a class="btn btn-info" href="login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
     </div>
   </nav>
 
@@ -45,37 +51,23 @@
     </div>
   </header>
 
-  <!-- Icons Grid -->
   <section class="features-icons bg-light text-center" id="info">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-            <div class="features-icons-icon d-flex">
-              <i class="icon-screen-desktop m-auto text-primary"></i>
+        <?php 
+        $sql = mysqli_query($conn, "SELECT * FROM tbl_buku ORDER BY RAND() LIMIT 3");
+        while ($data = mysqli_fetch_array($sql)){
+        ?>
+          <div class="col-lg-4">
+            <div class="features-icons-item mx-auto mb-lg-0 mb-lg-3">
+              <div class="features-icons-icon d-flex" style="height: 200px;">
+                <?= imgBuku($data['img_buku']) ?>
+              </div>
+              <h5><?= $data['judul'] ?></h5>
+              <a href="login.php" class="btn btn-info" style="color: white;"><i class="fa fa-check-circle"></i> Pinjam</a>
             </div>
-            <h3>Fully Responsive</h3>
-            <p class="lead mb-0">Website yang responsive membuat mudah digunakan di berbagai tampilan layar</p>
           </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-            <div class="features-icons-icon d-flex">
-              <i class="icon-layers m-auto text-primary"></i>
-            </div>
-            <h3>Up to date Data</h3>
-            <p class="lead mb-0">Database yang selalu update membuat aplikasi ini memudahkan pencarian referensi buku</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-            <div class="features-icons-icon d-flex">
-              <i class="icon-check m-auto text-primary"></i>
-            </div>
-            <h3>Easy to Use</h3>
-            <p class="lead mb-0">Mudah untuk digunakan bagi kalangan mahasiswa ataupun dosen.</p>
-          </div>
-        </div>
+        <?php } ?>
       </div>
     </div>
   </section>

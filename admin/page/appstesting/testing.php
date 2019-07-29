@@ -126,6 +126,7 @@
                 }
 
                 $sql = mysqli_query($conn, "SELECT * FROM tbl_buku");
+                $count = mysqli_num_rows($sql);
                 while($data = mysqli_fetch_array($sql)){
                     $isi = explode(" ", $data['stemming']);
                     $put['id'] = $data['id_buku'];
@@ -137,6 +138,7 @@
                     $arrTerm = array_values($arrTerm);
 
                 $sql1 = mysqli_query($conn, "SELECT * FROM tbl_buku WHERE id_kategori='KATEGORI001'");
+                $count1 = mysqli_num_rows($sql1);
                 while($data1 = mysqli_fetch_array($sql1)){
                     $isi1 = explode(" ", $data1['stemming']);
                     $put1['id'] = $data1['id_buku'];
@@ -148,6 +150,7 @@
                     $arrTerm1 = array_values($arrTerm1);
 
                 $sql2 = mysqli_query($conn, "SELECT * FROM tbl_buku WHERE id_kategori='KATEGORI002'");
+                $count2 = mysqli_num_rows($sql2);
                 while($data2 = mysqli_fetch_array($sql2)){
                     $isi2 = explode(" ", $data2['stemming']);
                     $put2['id'] = $data2['id_buku'];
@@ -159,6 +162,7 @@
                     $arrTerm2 = array_values($arrTerm2);
 
                 $sql3 = mysqli_query($conn, "SELECT * FROM tbl_buku WHERE id_kategori='KATEGORI003'");
+                $count3 = mysqli_num_rows($sql3);
                 while($data3 = mysqli_fetch_array($sql3)){
                     $isi3 = explode(" ", $data3['stemming']);
                     $put3['id'] = $data3['id_buku'];
@@ -170,6 +174,7 @@
                     $arrTerm3 = array_values($arrTerm3);
                 
                 $sql4 = mysqli_query($conn, "SELECT * FROM tbl_buku WHERE id_kategori='KATEGORI004'");
+                $count4 = mysqli_num_rows($sql4);
                 while($data4 = mysqli_fetch_array($sql4)){
                     $isi4 = explode(" ", $data4['stemming']);
                     $put4['id'] = $data4['id_buku'];
@@ -179,6 +184,13 @@
                 }
                     $arrTerm4 = array_unique($arrTerm4);
                     $arrTerm4 = array_values($arrTerm4);
+                
+                $kali = [
+                    ($count1/$count),
+                    ($count2/$count),
+                    ($count3/$count),
+                    ($count4/$count),
+                ];
                 
                 $isitf1 = [[]];
                 $isitf2 = [[]];
@@ -340,8 +352,8 @@
                     $kuar[] = $kuat;
                     $allnbc = $kuar;
 
-                    foreach($allnbc as $row){
-                        array_push($ratenbc,$row['final']);
+                    foreach($allnbc as $key => $val){
+                        array_push($ratenbc,($val['final']*$kali[$key]));
                     }
 
                     $ratemax = max($ratenbc);

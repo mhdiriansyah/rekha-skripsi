@@ -39,6 +39,7 @@
                                 <th>Penerbit</th>
                                 <th>Pengarang</th>
                                 <th>Tahun Terbit</th>
+                                <th>Acc</th>
                                 <th>Tanggal Pinjam</th>
                                 <th>Tanggal Selesai</th>
                                 <th>Tanggal Kembalikan</th>
@@ -52,6 +53,7 @@
                         $no = 1;
                         $q = mysqli_query($conn, "SELECT * FROM tbl_peminjaman
                                                 JOIN tbl_buku ON tbl_peminjaman.id_buku=tbl_buku.id_buku
+                                                JOIN tbl_mahasiswa ON tbl_peminjaman.nim=tbl_mahasiswa.nim
                                                 WHERE tbl_peminjaman.nim=$userdata[nim]");
                         while($data=mysqli_fetch_array($q)){
                         ?>
@@ -62,9 +64,11 @@
                                 <td><?= $data['penerbit'] ?></td>
                                 <td><?= $data['pengarang'] ?></td>
                                 <td><?= $data['tahun_terbit'] ?></td>
+                                <td><?= statusAcc($data['acc']) ?></td>
                                 <td><?= tanggal($data['tgl_pinjam']) ?></td>
                                 <td><?= tanggal($data['tgl_selesai']) ?></td>
                                 <td><?= tanggal($data['tgl_kembali']) ?></td>
+                                <?= emailReminder($data['id_pinjaman'],$data['email'],$data['nama_lengkap'],$data['tgl_selesai'],$data['id_buku'],$data['judul']) ?>
                                 <td><?= statusPeminjaman($data['status_pinjaman'],$data['tgl_selesai']) ?></td>
                                 <td><?= dendaJumlah($data['tgl_kembali'],$data['tgl_selesai']) ?></td>
                                 <td><?= statusKeterangan($data['keterangan']) ?></td>

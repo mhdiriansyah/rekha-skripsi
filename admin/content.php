@@ -10,8 +10,12 @@ elseif ($page == "logout")              include("page/logout.php");
 
     //-------------------------- buku --------------------------
     elseif ($page == "buku")                     include("page/buku/buku.php");
+    elseif ($page == "bukuu")                    include("page/buku/bukuu.php");
+    elseif ($page == "bukulist")                 include("page/buku/bukulist.php");
     elseif ($page == "bukutambah")               include("page/buku/bukutambah.php");
+    elseif ($page == "bukutambahh")              include("page/buku/bukutambahh.php");
     elseif ($page == "bukutambahpro")            include("page/buku/bukutambahpro.php");
+    elseif ($page == "bukutambahhpro")           include("page/buku/bukutambahhpro.php");
     elseif ($page == "bukuedit")                 include("page/buku/bukuedit.php");
     elseif ($page == "bukueditpro")              include("page/buku/bukueditpro.php");
     elseif ($page == "bukulihat")                include("page/buku/bukulihat.php");
@@ -47,6 +51,7 @@ elseif ($page == "logout")              include("page/logout.php");
     elseif ($page == "peminjamanlihat")          include("page/peminjaman/peminjamanlihat.php");
     elseif ($page == "peminjamanlihatdosen")     include("page/peminjaman/peminjamanlihatdosen.php");
     elseif ($page == "peminjamanupdate")         include("page/peminjaman/peminjamanupdate.php");
+    elseif ($page == "updateacc")                include("page/peminjaman/updateacc.php");
 
     //-------------------------- denda --------------------------
     elseif ($page == "denda")                    include("page/denda/denda.php");
@@ -58,6 +63,9 @@ elseif ($page == "logout")              include("page/logout.php");
 
     //-------------------------- testing --------------------------
     elseif ($page == "testing")                  include("page/appstesting/testing.php");
+
+    //-------------------------- report --------------------------
+    elseif ($page == "report")                   include("page/report/report.php");
     
 
     else include("page/404.php");

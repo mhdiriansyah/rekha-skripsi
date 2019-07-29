@@ -16,7 +16,7 @@
             <div class="col-lg-4">
                 <div class="row">
                     <div class="col-lg-12">
-                        <img class="img-thumbnail" src="../assets/img/buku/<?= $data['img_buku'] ?>">
+                        <?= imgBuku($data['img_buku']) ?>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 19, 2019 at 01:14 PM
+-- Generation Time: Jul 29, 2019 at 02:38 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -69,7 +69,8 @@ INSERT INTO `tbl_buku` (`id_buku`, `id_kategori`, `judul`, `penerbit`, `pengaran
 ('BUKU000019', 'KATEGORI004', 'Analisis Multivariat Terapan dengan Program SPSS, AMOS, & SMARTPLS', 'Uncen', 'Uncen', 'Asli', 'analisis multivariat terap program spss amos smartpls', 2019, 10, NULL, '2019-07-18 04:21:25', NULL),
 ('BUKU000020', 'KATEGORI004', 'Analisis regresi terapan', 'Uncen', 'Uncen', 'Asli', 'analisis regresi terap', 2019, 10, NULL, '2019-07-18 04:22:19', NULL),
 ('BUKU000021', 'KATEGORI004', 'Pengantar statistik probabilitas dan matematika', 'Uncen', 'Uncen', 'Asli', 'antar statistik probabilitas matematika', 2019, 10, NULL, '2019-07-18 04:22:42', NULL),
-('BUKU000022', 'KATEGORI004', 'Pengantar proses stokastik', 'Uncen', 'Uncen', 'Asli', 'antar proses stokastik', 2019, 10, NULL, '2019-07-18 04:23:08', NULL);
+('BUKU000022', 'KATEGORI004', 'Pengantar proses stokastik', 'Uncen', 'Uncen', 'Asli', 'antar proses stokastik', 2019, 10, NULL, '2019-07-28 17:58:30', NULL),
+('BUKU000023', 'KATEGORI001', 'Aljabar Linear Dasar Dilengkapi program MATLAB dan penerapannya', 'uncen', 'uncen', 'asli', 'aljabar linear dasar lengkap program matlab terap', 2019, 10, NULL, '2019-07-28 17:57:15', '2019-07-28 17:57:27');
 
 -- --------------------------------------------------------
 
@@ -88,7 +89,7 @@ CREATE TABLE `tbl_denda` (
 --
 
 INSERT INTO `tbl_denda` (`id_denda`, `durasi`, `nominal`) VALUES
-(2, 1, 1000);
+(2, 1, 7500);
 
 -- --------------------------------------------------------
 
@@ -159,7 +160,7 @@ INSERT INTO `tbl_mahasiswa` (`nim`, `nama_lengkap`, `email`, `password`, `anggot
 ('20150511014002', 'Sara Margaretha Yokhu', 'muhammad.iriansyah@ralali.com', 'saram11', 1, '20150511014002.jpeg', '2019-06-12 08:16:58'),
 ('20150511014003', 'Abdul Fiqih', 'abdulfiqih@gmail.com', 'abdulf11', 0, '20150511014003.jpg', '2019-04-20 14:33:55'),
 ('20150511014004', 'Andreas Reniban', 'andreasreniban@gmail.com', 'andreasr11', 1, '20150511014004.jpg', '2019-04-21 03:22:16'),
-('20150511014005', 'Rekha Ayu', 'ryanjoker87@gmail.com', 'rekha', 1, '20150511014005.png', '2019-06-13 00:09:11');
+('20150511014005', 'Rekha Ayu', 'ryanjoker87@gmail.com', 'rekha', 1, '20150511014005.png', '2019-07-28 18:22:04');
 
 -- --------------------------------------------------------
 
@@ -176,10 +177,18 @@ CREATE TABLE `tbl_peminjaman` (
   `tgl_selesai` date NOT NULL,
   `tgl_kembali` date DEFAULT NULL,
   `status_pinjaman` int(1) NOT NULL,
+  `acc` int(1) NOT NULL,
   `notif_email` int(1) NOT NULL,
   `denda` int(1) NOT NULL,
   `keterangan` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_peminjaman`
+--
+
+INSERT INTO `tbl_peminjaman` (`id_pinjaman`, `id_buku`, `nim`, `nip`, `tgl_pinjam`, `tgl_selesai`, `tgl_kembali`, `status_pinjaman`, `acc`, `notif_email`, `denda`, `keterangan`) VALUES
+(1, 'BUKU000001', '20150511014005', NULL, '2019-07-29', '2019-07-31', NULL, 0, 1, 0, 0, 'mantapsss');
 
 -- --------------------------------------------------------
 
@@ -200,7 +209,7 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id_user`, `username`, `password`, `role`, `terakhir_login`) VALUES
-(1, 'admin', 'admin11', 0, '2019-07-19 09:22:23');
+(1, 'admin', 'admin11', 0, '2019-07-28 18:20:40');
 
 --
 -- Indexes for dumped tables
@@ -266,7 +275,7 @@ ALTER TABLE `tbl_denda`
 -- AUTO_INCREMENT for table `tbl_peminjaman`
 --
 ALTER TABLE `tbl_peminjaman`
-  MODIFY `id_pinjaman` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pinjaman` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

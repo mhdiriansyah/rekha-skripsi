@@ -35,18 +35,19 @@
       <a class="collapse-item" href="?page=mahasiswa">Mahasiswa</a>
       <a class="collapse-item" href="?page=dosen">Dosen</a>
       <a class="collapse-item" href="?page=kategori">Kategori Buku</a>
-      <a class="collapse-item" href="?page=buku">Buku</a>
+      <a class="collapse-item" href="?page=bukulist">Buku</a>
       <a class="collapse-item" href="?page=peminjaman">Peminjaman</a>
       <a class="collapse-item" href="?page=denda">Denda</a>
+      <a class="collapse-item" href="?page=report">Report</a>
     </div>
   </div>
 </li>
-<hr class="sidebar-divider">
+<!-- <hr class="sidebar-divider">
 <li class="nav-item">
   <a class="nav-link" href="?page=testing">
     <i class="fas fa-fw fa-cogs"></i>
     <span>NBC Testing</span></a>
-</li>
+</li> -->
 <hr class="sidebar-divider">
 <div class="text-center d-none d-md-inline">
   <button class="rounded-circle border-0" id="sidebarToggle"></button>
