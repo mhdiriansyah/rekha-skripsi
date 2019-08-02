@@ -233,7 +233,7 @@ function dendaJumlah($id,$tgl1,$tgl2){
 
             if ($date1 > $date2){
                 $denda = ($diff->d*$data['nominal']);
-                mysqli_query($conn, "UPDATE tbl_peminjaman SET denda=1 WHERE id_pinjaman=$id");
+                mysqli_query($conn, "UPDATE tbl_peminjaman SET denda=$denda WHERE id_pinjaman=$id");
                 $val = '<label class="badge badge-danger">kena denda sebesar '.convertRupiah($denda).'</label>';
             } else {
                 $val = '<label class="badge badge-success">tidak ada denda</label>';
