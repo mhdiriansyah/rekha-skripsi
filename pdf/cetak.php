@@ -4,7 +4,9 @@ use Dompdf\Dompdf;
 require '../vendor/autoload.php';
 // menggunakan class dompdf
 $dompdf = new Dompdf();
-$html = file_get_contents("http://localhost:81/rekha-skripsi/pdf/report.php");
+$bulan = $_POST['bulan'];
+$tahun = $_POST['tahun'];
+$html = file_get_contents("http://localhost:81/rekha-skripsi/pdf/report.php?bulan=".$bulan."&tahun=".$tahun);
 $dompdf->loadHtml($html);
 // (Opsional) Mengatur ukuran kertas dan orientasi kertas
 $dompdf->setPaper('A4', 'portrait');

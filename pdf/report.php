@@ -41,11 +41,11 @@
             <table class="identitas">
                 <tr>
                     <td>Transaksi Peminjaman</td>
-                    <td><?= $all.' Transaksi' ?></td>
+                    <td>: <b><?= $all.'</b> Transaksi' ?></td>
                 </tr>
                 <tr>
                     <td>Buku Belum Dikembalikan</td>
-                    <td><?= $belumkembali.' buku belum dikembalikan' ?></td>
+                    <td>: <b><?= $belumkembali.'</b> Buku belum dikembalikan' ?></td>
                 </tr>
             </table>
         </div><br>
@@ -63,15 +63,15 @@
                 </tr>
                 <?php
                 $no = 1;
-                $sql = mysqli_query($conn, "SELECT * FROM tbl_peminjaman");
+                $sql = mysqli_query($conn, "SELECT * FROM tbl_peminjaman WHERE MONTH(tgl_pinjam)=$_GET[bulan] AND YEAR(tgl_pinjam)=$_GET[tahun]");
                 while($data = mysqli_fetch_array($sql)){ ?>
                     <tr>
                         <td><?= $no ?>.</td>
                         <td><?= $data['id_buku'] ?></td>
                         <td><?= $data['nim'].$data['nip'] ?></td>
-                        <td><?= $data['tgl_pinjam'] ?></td>
-                        <td><?= $data['tgl_selesai'] ?></td>
-                        <td><?= (!empty($data['tgl_kembali'])) ? $data['tgl_kembali'] : 'Belum Dikembalikan' ?></td>
+                        <td><?= date('d F Y', strtotime($data['tgl_pinjam'])) ?></td>
+                        <td><?= date('d F Y', strtotime($data['tgl_selesai'])) ?></td>
+                        <td><?= (!empty($data['tgl_kembali'])) ? date('d F Y', strtotime($data['tgl_kembali'])) : 'Belum Dikembalikan' ?></td>
                         <td><?= $data['denda'] ?></td>
                         <td><?= ($data['status_pinjaman'] == 1) ? 'Selesai' : 'Belum Selesai' ?></td>
                     </tr>

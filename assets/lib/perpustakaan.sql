@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 29, 2019 at 02:38 AM
+-- Generation Time: Aug 02, 2019 at 05:00 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -158,7 +158,7 @@ CREATE TABLE `tbl_mahasiswa` (
 INSERT INTO `tbl_mahasiswa` (`nim`, `nama_lengkap`, `email`, `password`, `anggota_aktif`, `img_mhs`, `terakhir_login`) VALUES
 ('20150511014001', 'Erin Fitriah Rahayu Putri', 'ryanjoker87@gmail.com', 'erinf11', 1, '20150511014001.jpg', '2019-07-14 13:28:51'),
 ('20150511014002', 'Sara Margaretha Yokhu', 'muhammad.iriansyah@ralali.com', 'saram11', 1, '20150511014002.jpeg', '2019-06-12 08:16:58'),
-('20150511014003', 'Abdul Fiqih', 'abdulfiqih@gmail.com', 'abdulf11', 0, '20150511014003.jpg', '2019-04-20 14:33:55'),
+('20150511014003', 'Abdul Fiqih', 'abdulfiqih@gmail.com', 'abdulf11', 1, '20150511014003.jpg', '2019-08-02 02:43:11'),
 ('20150511014004', 'Andreas Reniban', 'andreasreniban@gmail.com', 'andreasr11', 1, '20150511014004.jpg', '2019-04-21 03:22:16'),
 ('20150511014005', 'Rekha Ayu', 'ryanjoker87@gmail.com', 'rekha', 1, '20150511014005.png', '2019-07-28 18:22:04');
 
@@ -188,7 +188,8 @@ CREATE TABLE `tbl_peminjaman` (
 --
 
 INSERT INTO `tbl_peminjaman` (`id_pinjaman`, `id_buku`, `nim`, `nip`, `tgl_pinjam`, `tgl_selesai`, `tgl_kembali`, `status_pinjaman`, `acc`, `notif_email`, `denda`, `keterangan`) VALUES
-(1, 'BUKU000001', '20150511014005', NULL, '2019-07-29', '2019-07-31', NULL, 0, 1, 0, 0, 'mantapsss');
+(1, 'BUKU000001', '20150511014005', NULL, '2019-07-29', '2019-07-31', NULL, 0, 1, 0, 0, 'mantapsss'),
+(2, 'BUKU000002', '20150511014003', NULL, '2020-08-02', '2020-08-09', NULL, 0, 1, 0, 0, 'Untuk Skripsi');
 
 -- --------------------------------------------------------
 
@@ -209,7 +210,7 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id_user`, `username`, `password`, `role`, `terakhir_login`) VALUES
-(1, 'admin', 'admin11', 0, '2019-07-28 18:20:40');
+(1, 'admin', 'admin11', 0, '2019-08-02 02:09:13');
 
 --
 -- Indexes for dumped tables
@@ -275,7 +276,7 @@ ALTER TABLE `tbl_denda`
 -- AUTO_INCREMENT for table `tbl_peminjaman`
 --
 ALTER TABLE `tbl_peminjaman`
-  MODIFY `id_pinjaman` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pinjaman` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
