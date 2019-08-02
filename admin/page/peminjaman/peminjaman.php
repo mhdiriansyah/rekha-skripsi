@@ -107,7 +107,7 @@
                                 <td><?= tanggal($data['tgl_pinjam']) ?></td>
                                 <td><?= tanggal($data['tgl_selesai']) ?></td>
                                 <td><?= tanggal($data['tgl_kembali']) ?></td>
-                                <td><?= statusPeminjaman($data['status_pinjaman'],$data['tgl_selesai']) ?></td>
+                                <td><?= ($data['status_pinjaman'] == 1) ? '<label class="badge badge-info">selesai</label>' : '<label class="badge badge-primary">dipinjam</label>' ?></td>
                                 <td><?= statusKeterangan($data['keterangan']) ?></td>
                                 <td>
                                     <a href="?page=peminjamanlihatdosen&id=<?= $data['id_pinjaman'] ?>" class="btn btn-primary">lihat detail</a>
