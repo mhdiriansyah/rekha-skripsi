@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="col-lg-8">
-                <form action="?page=bukueditpro" method="post" enctype="multipart/form-data">
+                <form action="?page=manajemenbukueditpro" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-12">
                             <label class="badge badge-primary"><?= $data['id_buku'] ?></label>
@@ -104,7 +104,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <input type="submit" name="submit" class="btn btn-primary" value="Simpan">
-                            <a href="?page=buku" class="btn btn-secondary">Batal</a>
+                            <a href="?page=manajemenbuku" class="btn btn-secondary">Batal</a>
                         </div>
                     </div>
                 </form>

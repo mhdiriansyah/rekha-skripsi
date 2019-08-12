@@ -1,5 +1,5 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Manajemen Buku</h1>
+  <h1 class="h3 mb-0 text-gray-800">Manajemen Data Training Buku</h1>
 </div>
 <?php 
     $get_id = mysqli_query($conn, "SELECT id_buku FROM tbl_buku WHERE SUBSTRING(id_buku,1,4)='BUKU'") or die (mysqli_error($conn));
@@ -21,7 +21,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-lg-12">
-                <form action="?page=bukutambahpro" method="post" enctype="multipart/form-data">
+                <form action="?page=trainingbukutambahpro" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-6">
                             <label class="badge badge-primary"><?= $id_k ?></label>
@@ -103,7 +103,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <input type="submit" name="submit" class="btn btn-primary" value="Simpan">
-                            <a href="?page=buku" class="btn btn-secondary">Batal</a>
+                            <a href="?page=trainingbuku" class="btn btn-secondary">Batal</a>
                         </div>
                     </div>
                 </form>

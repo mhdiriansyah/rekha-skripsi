@@ -1,5 +1,5 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Manajemen Buku</h1>
+  <h1 class="h3 mb-0 text-gray-800">Manajemen Data Training Buku</h1>
 </div>
 <?php 
     $query = mysqli_query($conn, "SELECT * FROM tbl_buku WHERE id_buku='$_GET[id]'");
@@ -61,7 +61,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <a href="?page=buku" class="btn btn-secondary">Kembali</a>
+                        <a href="?page=trainingbuku" class="btn btn-secondary">Kembali</a>
                     </div>
                 </div>
             </div>

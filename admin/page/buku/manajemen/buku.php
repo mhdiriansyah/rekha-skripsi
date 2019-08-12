@@ -5,7 +5,7 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary">List Data Buku</h6>
-        <a href="?page=bukutambahh" class="btn btn-primary"><i class="fas fa-plus-square"></i> tambah data</a>
+        <a href="?page=manajemenbukutambah" class="btn btn-primary"><i class="fas fa-plus-square"></i> tambah data</a>
     </div>
     <!-- Card Body -->
     <div class="card-body">
@@ -44,9 +44,9 @@
                                 <td><?= $data['tahun_terbit'] ?></td>
                                 <td><?= jumlahBuku($data['stok'],'Y') ?>, tersisa <?= (jumlahBuku($data['stok'],'T')-jumlahBukuPinjam($data['id_buku'])) ?> Buku</td>
                                 <td>
-                                    <a href="?page=bukuedit&id=<?= $data['id_buku'] ?>" class="btn btn-info">edit</a>
-                                    <a href="?page=bukulihat&id=<?= $data['id_buku'] ?>" class="btn btn-success">lihat</a>
-                                    <a href="?page=bukuhapus&id=<?= $data['id_buku'] ?>" class="btn btn-danger">hapus</a>
+                                    <a href="?page=manajemenbukuedit&id=<?= $data['id_buku'] ?>" class="btn btn-info">edit</a>
+                                    <a href="?page=manajemenbukulihat&id=<?= $data['id_buku'] ?>" class="btn btn-success">lihat</a>
+                                    <a href="?page=manajemenbukuhapus&id=<?= $data['id_buku'] ?>" class="btn btn-danger">hapus</a>
                                 </td>
                             </tr>
                         <?php $no++; } ?>

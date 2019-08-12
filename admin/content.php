@@ -9,13 +9,30 @@ elseif ($page == "logout")              include("page/logout.php");
     elseif ($page == "profil")                     include("page/profil/profil.php");
 
     //-------------------------- buku --------------------------
-    elseif ($page == "buku")                     include("page/buku/buku.php");
-    elseif ($page == "bukuu")                    include("page/buku/bukuu.php");
     elseif ($page == "bukulist")                 include("page/buku/bukulist.php");
+
+    //-------------------------- data training buku --------------------------
+    elseif ($page == "trainingbuku")             include("page/buku/training/buku.php");
+    elseif ($page == "trainingbukutambah")       include("page/buku/training/bukutambah.php");
+    elseif ($page == "trainingbukutambahpro")    include("page/buku/training/bukutambahpro.php");
+    elseif ($page == "trainingbukuedit")         include("page/buku/training/bukuedit.php");
+    elseif ($page == "trainingbukueditpro")      include("page/buku/training/bukueditpro.php");
+    elseif ($page == "trainingbukulihat")        include("page/buku/training/bukulihat.php");
+    elseif ($page == "trainingbukuhapus")        include("page/buku/training/bukuhapus.php");
+
+    //-------------------------- data manajemen buku --------------------------
+    elseif ($page == "manajemenbuku")            include("page/buku/manajemen/buku.php");
+    elseif ($page == "manajemenbukutambah")      include("page/buku/manajemen/bukutambah.php");
+    elseif ($page == "manajemenbukutambahpro")   include("page/buku/manajemen/bukutambahpro.php");
+    elseif ($page == "manajemenbukuedit")        include("page/buku/manajemen/bukuedit.php");
+    elseif ($page == "manajemenbukueditpro")     include("page/buku/manajemen/bukueditpro.php");
+    elseif ($page == "manajemenbukulihat")       include("page/buku/manajemen/bukulihat.php");
+    elseif ($page == "manajemenbukuhapus")       include("page/buku/manajemen/bukuhapus.php");
+
+    //-------------------------- data manajemen buku --------------------------
+    elseif ($page == "buku")                     include("page/buku/buku.php");
     elseif ($page == "bukutambah")               include("page/buku/bukutambah.php");
-    elseif ($page == "bukutambahh")              include("page/buku/bukutambahh.php");
     elseif ($page == "bukutambahpro")            include("page/buku/bukutambahpro.php");
-    elseif ($page == "bukutambahhpro")           include("page/buku/bukutambahhpro.php");
     elseif ($page == "bukuedit")                 include("page/buku/bukuedit.php");
     elseif ($page == "bukueditpro")              include("page/buku/bukueditpro.php");
     elseif ($page == "bukulihat")                include("page/buku/bukulihat.php");

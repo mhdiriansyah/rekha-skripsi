@@ -21,7 +21,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-lg-12">
-                <form action="?page=bukutambahhpro" method="post" enctype="multipart/form-data">
+                <form action="?page=manajemenbukutambahpro" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-6">
                             <label class="badge badge-primary"><?= $id_k ?></label>
@@ -87,7 +87,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <input type="submit" name="submit" class="btn btn-primary" value="Simpan">
-                            <a href="?page=buku" class="btn btn-secondary">Batal</a>
+                            <a href="?page=manajemenbuku" class="btn btn-secondary">Batal</a>
                         </div>
                     </div>
                 </form>

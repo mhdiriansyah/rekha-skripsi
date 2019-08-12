@@ -1,5 +1,5 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Manajemen Buku</h1>
+  <h1 class="h3 mb-0 text-gray-800">List Data Buku</h1>
 </div>
 
 <div class="card shadow mb-4">
@@ -17,7 +17,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Input data training</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                            <a href="?page=buku" class="btn btn-danger">pilih</a>
+                            <a href="?page=trainingbuku" class="btn btn-danger">pilih</a>
                         </div>
                     </div>
                     <div class="col-auto">
@@ -34,7 +34,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Input data buku</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                            <a href="?page=bukuu" class="btn btn-success">pilih</a>
+                            <a href="?page=manajemenbuku" class="btn btn-success">pilih</a>
                         </div>
                     </div>
                     <div class="col-auto">

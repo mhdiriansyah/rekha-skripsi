@@ -1,5 +1,5 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Manajemen Buku</h1>
+  <h1 class="h3 mb-0 text-gray-800">Manajemen Data Training Buku</h1>
 </div>
 
 <div class="card shadow mb-4">
@@ -12,10 +12,10 @@
             <div class="card border-left-danger shadow">
                 <div class="card-body">
                     Apakah anda yakin ingin menghapus data ini ?
-                    <form action="?page=bukuhapus" method="post" enctype="multipart/form-data">
+                    <form action="?page=trainingbukuhapus" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="idbuku" value="<?= $_GET['id'] ?>">
                         <input type="submit" class="btn btn-danger" name="submit" value="Ya">
-                        <a href="?page=buku" class="btn btn-secondary">Tidak</a>
+                        <a href="?page=trainingbuku" class="btn btn-secondary">Tidak</a>
                     </form>
                 </div>
             </div>
