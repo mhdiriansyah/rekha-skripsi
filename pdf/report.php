@@ -1,12 +1,13 @@
 <?php 
     include "../assets/lib/koneksi.php";
     include "./service.php";
-    $all = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tbl_peminjaman"));
-    $belumkembali = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tbl_peminjaman WHERE tgl_kembali IS NULL"));
+    $all = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tbl_peminjaman WHERE MONTH(tgl_pinjam)=$_GET[bulan] AND YEAR(tgl_pinjam)=$_GET[tahun]"));
+    $belumKembali = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tbl_peminjaman WHERE MONTH(tgl_pinjam)=$_GET[bulan] AND YEAR(tgl_pinjam)=$_GET[tahun] AND tgl_kembali IS NULL"));
+    $sudahKembali = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tbl_peminjaman WHERE MONTH(tgl_pinjam)=$_GET[bulan] AND YEAR(tgl_pinjam)=$_GET[tahun] AND tgl_kembali IS NOT NULL"));
     $jumdenda = 0;
     $q = mysqli_query($conn, "SELECT * FROM tbl_peminjaman WHERE MONTH(tgl_pinjam)=$_GET[bulan] AND YEAR(tgl_pinjam)=$_GET[tahun]");
-    $jumlah = mysqli_nums_row($q);
-    echo $jumlah;
+    $dosen = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tbl_peminjaman WHERE MONTH(tgl_pinjam)=$_GET[bulan] AND YEAR(tgl_pinjam)=$_GET[tahun] AND nip IS NOT NULL"));
+    $mhs = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tbl_peminjaman WHERE MONTH(tgl_pinjam)=$_GET[bulan] AND YEAR(tgl_pinjam)=$_GET[tahun] AND nim IS NOT NULL"));
     while ($data = mysqli_fetch_array($q)){
         $jumdenda += $data['denda'];
     }
@@ -40,11 +41,14 @@
         table.pelanggan tr th:first-child { width: 30px;}
         table.pelanggan tr th{height: 40px; border-bottom: solid 2px #d3d3d3; background: #f2f2f2;text-align: center;}
         span {display: block; background: #27ae60;color: #f2f2f2;border-radius:5px;}
-        /* #watermark { position: fixed; bottom: 10cm; left: 5.5cm; width: 8cm; height: 8cm; z-index: -1000; opacity: 0.1;} */
+        #watermark { position: fixed; bottom: 10cm; left: 5.5cm; width: 8cm; height: 8cm; z-index: -1000; opacity: 0.1;}
     </style>
 </head>
 <body>
     <main>
+        <div id="watermark">
+            <img src="<?= $_SERVER['DOCUMENT_ROOT'].'/rekha-skripsi/pdf/logo.jpg' ?>" width="300px">
+        </div>
         <div class="title">
             <h2><u>REPORT PERPUSTAKAAN</u></h2>
         </div>
@@ -52,23 +56,31 @@
             <table class="identitas">
                 <tr>
                     <td>Periode</td>
-                    <td>: <b><?= date('M', strtotime($row['tgl_pinjam'])).'-'.date('Y', strtotime($row['tgl_pinjam'])) ?></b></td>
+                    <td>: <b><?= ($all > 0) ? date('M', strtotime($row['tgl_pinjam'])).'-'.date('Y', strtotime($row['tgl_pinjam'])) : '-' ?></b></td>
                 </tr>
                 <tr>
                     <td>Transaksi Peminjaman</td>
-                    <td>: <b><?= $all.' Transaksi' ?></b></td>
+                    <td>: <b><?= ($all > 0) ? $all.' Transaksi' : '-' ?></b></td>
                 </tr>
                 <tr>
                     <td>Buku Belum Dikembalikan</td>
-                    <td>: <b><?= (!empty($belumkembali)) ? 'Buku belum dikembalikan' : 'Semua Buku Sudah Dikembalikan' ?></b></td>
+                    <td>: <b><?= ($belumKembali > 0) ? $belumKembali.' buku' : '-' ?></b></td>
+                </tr>
+                <tr>
+                    <td>Buku Sudah Dikembalikan</td>
+                    <td>: <b><?= ($sudahKembali > 0) ? $sudahKembali.' buku' : '-' ?></b></td>
                 </tr>
                 <tr>
                     <td>Total Denda Bulan Ini</td>
-                    <td>: <b><?= (!empty($jumdenda)) ? convertRupiah($jumdenda) : 'Tidak Ada Denda' ?></td>
+                    <td>: <b><?= (!empty($jumdenda)) ? convertRupiah($jumdenda) : '-' ?></td>
                 </tr>
             </table>
         </div><br>
         <div class="long-desc">
+            <?php if($dosen==0 && $mhs==0){ ?>
+                <h2 style="text-align:center;"> -- Report Belum Ada --</h2>
+            <?php } ?>
+            <?php if ($mhs>0){ ?>
             <h3>Mahasiswa</h3>
             <table class="pelanggan">
                 <tr>
@@ -99,7 +111,9 @@
                     </tr>
                 <?php $no++; } ?>
             </table>
+            <?php } ?>
 
+            <?php if ($dosen>0){ ?>
             <h3>Dosen</h3>
             <table class="pelanggan">
                 <tr>
@@ -130,6 +144,7 @@
                     </tr>
                 <?php $no++; } ?>
             </table>
+            <?php } ?>
         </div>
     </main>
 </body>
