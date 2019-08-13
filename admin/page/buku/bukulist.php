@@ -5,7 +5,6 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary">List Data Buku</h6>
-        <a href="?page=bukutambah" class="btn btn-primary"><i class="fas fa-plus-square"></i> tambah data</a>
     </div>
     <!-- Card Body -->
     <div class="card-body">

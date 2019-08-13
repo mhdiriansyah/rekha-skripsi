@@ -42,12 +42,12 @@
     </div>
   </div>
 </li>
-<!-- <hr class="sidebar-divider">
+<hr class="sidebar-divider">
 <li class="nav-item">
-  <a class="nav-link" href="?page=testing">
-    <i class="fas fa-fw fa-cogs"></i>
-    <span>NBC Testing</span></a>
-</li> -->
+  <a class="nav-link" href="?page=caribuku">
+    <i class="fas fa-fw fa-book"></i>
+    <span>Cari Buku</span></a>
+</li>
 <hr class="sidebar-divider">
 <div class="text-center d-none d-md-inline">
   <button class="rounded-circle border-0" id="sidebarToggle"></button>

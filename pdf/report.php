@@ -5,6 +5,8 @@
     $belumkembali = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tbl_peminjaman WHERE tgl_kembali IS NULL"));
     $jumdenda = 0;
     $q = mysqli_query($conn, "SELECT * FROM tbl_peminjaman WHERE MONTH(tgl_pinjam)=$_GET[bulan] AND YEAR(tgl_pinjam)=$_GET[tahun]");
+    $jumlah = mysqli_nums_row($q);
+    echo $jumlah;
     while ($data = mysqli_fetch_array($q)){
         $jumdenda += $data['denda'];
     }

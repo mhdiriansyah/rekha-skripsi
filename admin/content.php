@@ -10,6 +10,7 @@ elseif ($page == "logout")              include("page/logout.php");
 
     //-------------------------- buku --------------------------
     elseif ($page == "bukulist")                 include("page/buku/bukulist.php");
+    elseif ($page == "caribuku")                 include("page/buku/caribuku.php");
 
     //-------------------------- data training buku --------------------------
     elseif ($page == "trainingbuku")             include("page/buku/training/buku.php");

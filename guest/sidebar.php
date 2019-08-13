@@ -41,6 +41,11 @@
     </div>
   </div>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="?page=caribuku">
+    <i class="fas fa-fw fa-book"></i>
+    <span>Cari Buku</span></a>
+</li>
 <hr class="sidebar-divider">
 <div class="text-center d-none d-md-inline">
   <button class="rounded-circle border-0" id="sidebarToggle"></button>

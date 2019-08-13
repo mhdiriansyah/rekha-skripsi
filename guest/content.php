@@ -19,6 +19,9 @@ elseif ($page == "logout")                  include("page/logout.php");
     // -------------------------- peminjaman --------------------------
     elseif ($page == "peminjaman")          include("page/peminjaman/peminjaman.php");
     elseif ($page == "peminjamandosen")     include("page/peminjaman/peminjamandosen.php");
+
+    // -------------------------- cari buku --------------------------
+    elseif ($page == "caribuku")            include("page/buku/caribuku.php");
     
 
     else include("page/404.php");

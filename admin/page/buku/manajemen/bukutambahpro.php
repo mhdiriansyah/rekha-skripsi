@@ -14,7 +14,6 @@
                 if(isset($_POST['submit'])){
                     $idbuku     = $_POST['id_buku'];
                     $judul      = $_POST['judul'];
-                    $kategori   = $_POST['kategori'];
                     $penerbit   = $_POST['penerbit'];
                     $pengarang  = $_POST['pengarang'];
                     $catatan    = addslashes($_POST['catatan']);
@@ -23,6 +22,9 @@
                     $datenow    = date('Y-m-d H:i:s');
                     $gege       = textPreprocessing($judul);
                     $catatan_s  = $stemmer->stem($gege);
+                    $final      = naiveBayes($catatan_s);
+                    $good       = $final[0]['id'];
+                    $goodNama   = $final[0]['nama'];
                     
                     $nama_img   = $_FILES['buku']['name'];
                     $loc_img    = $_FILES['buku']['tmp_name'];
@@ -37,7 +39,7 @@
                             move_uploaded_file($loc_img,"../assets/img/buku/$newfilename");
                             $input = mysqli_query($conn,"INSERT INTO tbl_buku SET
                                     id_buku         = '$idbuku',
-                                    id_kategori     = '$kategori',
+                                    id_kategori     = '$good',
                                     judul           = '$judul',
                                     penerbit        = '$penerbit',
                                     pengarang       = '$pengarang',
@@ -49,9 +51,15 @@
                                     updated_at      = '$datenow'
                                     ") or die (mysqli_error($conn));
                             if ($input){
-                                echo '<a href="#" class="btn btn-success btn-block">Data berhasil disimpan</a>';
-                                echo "<meta http-equiv='refresh' content='1;
-                                url=?page=manajemenbuku'>";
+                                echo '<div class="row">'.
+                                        '<div class="card border-left-danger shadow" style="width: 100%;">'.
+                                            '<div class="card-body">'.
+                                                'buku dengan judul <label class="badge badge-success">"'.$judul.'"</label> masuk dalam kategori <label class="badge badge-primary">'.$good.' -> '.$goodNama.'</label></br>'.
+                                                'apakah anda ingin mengisi data buku lagi ?</br>'.
+                                                '<a style="margin-right:5px;"class="btn btn-primary" href="?page=manajemenbukutambah">ya</a><a class="btn btn-danger" href="?page=manajemenbuku">tidak</a>'.
+                                            '</div>'.
+                                        '</div>'.
+                                    '</div>';
                             }
                         } else {
                             echo '<a href="?page=manajementambahbuku" class="btn btn-danger btn-block">Ekstensi tidak sesuai. Ekstensi gambar harus PNG, JPG, JPEG, GIF. Isi ulang data</a>';
@@ -59,7 +67,7 @@
                     } else {
                         $input = mysqli_query($conn,"INSERT INTO tbl_buku SET
                                 id_buku         = '$idbuku',
-                                id_kategori     = '$kategori',
+                                id_kategori     = '$good',
                                 judul           = '$judul',
                                 penerbit        = '$penerbit',
                                 pengarang       = '$pengarang',
@@ -70,9 +78,15 @@
                                 updated_at      = '$datenow'
                                 ") or die (mysqli_error($conn));
                         if ($input){
-                            echo '<a href="#" class="btn btn-success btn-block">Data berhasil disimpan</a>';
-                            echo "<meta http-equiv='refresh' content='1;
-                            url=?page=manajemenbuku'>";
+                            echo '<div class="row">'.
+                                    '<div class="card border-left-primary shadow" style="width: 100%;">'.
+                                        '<div class="card-body">'.
+                                            'buku dengan judul <label class="badge badge-success">"'.$judul.'"</label> masuk dalam kategori <label class="badge badge-primary">'.$good.' -> '.$goodNama.'</label></br>'.
+                                            'apakah anda ingin mengisi data buku lagi ?</br>'.
+                                            '<a style="margin-right:5px;"class="btn btn-primary" href="?page=manajemenbukutambah">ya</a><a class="btn btn-danger" href="?page=manajemenbuku">tidak</a>'.
+                                        '</div>'.
+                                    '</div>'.
+                                '</div>';
                         }
                     }
                 }

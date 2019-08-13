@@ -31,7 +31,7 @@
                 if ($delete){
                     echo '<a href="#" class="btn btn-success btn-block">Data berhasil dihapus</a>';
                     echo "<meta http-equiv='refresh' content='1;
-                    url=?page=buku'>";
+                    url=?page=manajemenbuku'>";
                 }
             }
         ?>
