@@ -14,13 +14,14 @@
                 if(isset($_POST['submit'])){
                     $idbuku     = $_POST['id_buku'];
                     $judul      = $_POST['judul'];
+                    $abstrak    = $_POST['abstrak'];
                     $penerbit   = $_POST['penerbit'];
                     $pengarang  = $_POST['pengarang'];
                     $catatan    = addslashes($_POST['catatan']);
                     $tahun      = $_POST['tahun'];
                     $stok       = $_POST['stok'];
                     $datenow    = date('Y-m-d H:i:s');
-                    $gege       = textPreprocessing($judul);
+                    $gege       = textPreprocessing($abstrak);
                     $catatan_s  = $stemmer->stem($gege);
                     $final      = naiveBayes($catatan_s);
                     $good       = $final[0]['id'];
@@ -44,6 +45,7 @@
                                     penerbit        = '$penerbit',
                                     pengarang       = '$pengarang',
                                     catatan         = '$catatan',
+                                    abstrak         = '$abstrak',
                                     stemming        = '$catatan_s',
                                     tahun_terbit    = '$tahun',
                                     stok            = $stok,
@@ -72,6 +74,7 @@
                                 penerbit        = '$penerbit',
                                 pengarang       = '$pengarang',
                                 catatan         = '$catatan',
+                                abstrak         = '$abstrak',
                                 stemming        = '$catatan_s',
                                 tahun_terbit    = '$tahun',
                                 stok            = $stok,

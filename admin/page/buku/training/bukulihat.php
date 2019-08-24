@@ -33,6 +33,10 @@
                                 <td><?= $data['judul'] ?></td>
                             </tr>
                             <tr>
+                                <td>Abstrak</td>
+                                <td><?= $data['abstrak'] ?></td>
+                            </tr>
+                            <tr>
                                 <td>Kategori</td>
                                 <td><?= labelKategori($data['id_kategori']) ?></td>
                             </tr>

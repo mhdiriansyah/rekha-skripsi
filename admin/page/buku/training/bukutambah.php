@@ -31,8 +31,16 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label>Judul</label>
-                                <textarea class="form-control" placeholder="isikan judul buku ..." name="judul" autocomplete="OFF"></textarea>
+                                <textarea class="form-control" placeholder="isikan judul buku ..." name="judul" autocomplete="OFF" required></textarea>
                                 <input type="hidden" name="id_buku" value="<?= $id_k ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Abstrak</label>
+                                <textarea class="form-control" placeholder="isikan abstrak buku ..." name="abstrak" autocomplete="OFF" rows="5" required></textarea>
                             </div>
                         </div>
                     </div>

@@ -37,6 +37,14 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <label>Abstrak</label>
+                                <textarea class="form-control" placeholder="isikan abstrak buku ..." name="abstrak" autocomplete="OFF"><?= $data['abstrak'] ?></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label>Kategori Buku</label>

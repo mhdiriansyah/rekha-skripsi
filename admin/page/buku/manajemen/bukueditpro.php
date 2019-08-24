@@ -14,6 +14,7 @@
                 if(isset($_POST['submit'])){
                     $idbuku     = $_POST['id_buku'];
                     $judul      = $_POST['judul'];
+                    $abstrak    = $_POST['abstrak'];
                     $kategori   = $_POST['kategori'];
                     $penerbit   = $_POST['penerbit'];
                     $pengarang  = $_POST['pengarang'];
@@ -22,7 +23,7 @@
                     $stok       = $_POST['stok'];
                     $imgold     = $_POST['img_old'];
                     $datenow    = date('Y-m-d H:i:s');
-                    $gege       = textPreprocessing($judul);
+                    $gege       = textPreprocessing($abstrak);
                     $catatan_s  = $stemmer->stem($gege);
                     
                     $nama_img   = $_FILES['buku']['name'];
@@ -44,6 +45,7 @@
                                     penerbit        = '$penerbit',
                                     pengarang       = '$pengarang',
                                     catatan         = '$catatan',
+                                    abstrak         = '$abstrak',
                                     stemming        = '$catatan_s',
                                     tahun_terbit    = '$tahun',
                                     stok            = $stok,
@@ -66,6 +68,7 @@
                                     penerbit        = '$penerbit',
                                     pengarang       = '$pengarang',
                                     catatan         = '$catatan',
+                                    abstrak         = '$abstrak',
                                     stemming        = '$catatan_s',
                                     tahun_terbit    = '$tahun',
                                     stok            = $stok,

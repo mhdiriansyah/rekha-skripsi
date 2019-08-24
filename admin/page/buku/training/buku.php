@@ -18,6 +18,7 @@
                                 <th>No</th>
                                 <th>#</th>
                                 <th>Judul</th>
+                                <th>Abstrak</th>
                                 <th>Kategori</th>
                                 <th>Penerbit</th>
                                 <th>Pengarang</th>
@@ -37,6 +38,7 @@
                                 <td><?= $no ?></td>
                                 <td><label class="badge badge-success"><i class="fas fa-book"></i> <?= $data['id_buku'] ?></label></td>
                                 <td><?= $data['judul'] ?></td>
+                                <td><?= $data['abstrak'] ?></td>
                                 <td><?= labelKategori($data['id_kategori']) ?></td>
                                 <td><?= $data['penerbit'] ?></td>
                                 <td><?= $data['pengarang'] ?></td>
