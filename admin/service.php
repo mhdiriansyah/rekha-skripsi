@@ -163,6 +163,16 @@ function statusNotifEmail($params){
     return $val;
 }
 
+function getAbstrak($params){
+    $val = "";
+    if(empty($params)){
+        $val = '<label class="badge badge-danger">belum ada abstrak</label>';
+    } else {
+        $val = $params;
+    }
+    return $val;
+}
+
 function statusKeterangan($params){
     $val = "";
     if (!empty($params)) {

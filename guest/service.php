@@ -150,6 +150,16 @@ function stokBuku($a){
     return $str;
 }
 
+function getAbstrak($params){
+    $val = "";
+    if(empty($params)){
+        $val = '<label class="badge badge-danger">belum ada abstrak</label>';
+    } else {
+        $val = $params;
+    }
+    return $val;
+}
+
 function convertRupiah($params){
 	$val = "Rp " . number_format($params,2,'.',',');
 	return $val;
